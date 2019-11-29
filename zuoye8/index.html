@@ -1,81 +1,58 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>
-		</title>
-		<script type="text/javascript">
-			function displayResult1()
+		<title></title>
+		<style>
+			.div1
 			{
-				var table=document.getElementById("myTable");
-	            var row=table.insertRow(3);
-	            var cell1=row.insertCell(0);
-	            var cell2=row.insertCell(1);
-	            var cell3=row.insertCell(2);
-	            var   elment =  '';
-	            cell1.innerHTML="201905555624";
-	            cell2.innerHTML="黄慧源";
-	            cell3.innerHTML="删除";
-				/*var obj=document.createElement("tr");
-				//obj.style.cssText="font-size: 30px;";
-				obj.innerHTML="<td>201905555624</td><td>黄慧源</td><td><a >删除</a></td>";
-				var x=document.getElementById("father");
-				x.appendChild(obj);*/
+			   width:1000px;
+			   height:800px;
+			   margin: 0 auto;
 			}
-			function deleteRow(r)
-			{
-	         var i=r.parentNode.parentNode.rowIndex;
-	         document.getElementById('myTable').deleteRow(i);
-            }
-			
-			function displayResult(){
-	document.getElementById("myTable").deleteRow(1);
-}
-			
-		</script>
-		
+			.div1 p{
+				font-size: -webkit-xxx-large;
+				color: black;
+			}
+		</style>
 	</head>
 	<body>
-		<label>学号</label>
-		<input type="number" />
-		<label>姓名</label>
-		<input type="text" />
-		<input type="button" value="增加"  onclick="displayResult1()"/>
-		<table border="1" style="border-collapse: collapse;" width="300px" id="myTable">
-			<tr id="father">
-				<td>学号</td>
-				<td>姓名</td>
-				<td>操作</td>
-			</tr>
-			<tr id="father">
-				<td>201905555624</td>
-				<td>黄慧源</td>
-				<td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
-			</tr>
-			<tr id="father">
-				<td>201905555624</td>
-				<td>黄慧源</td>
-				<td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
-			</tr>
-				<tr id="father">
-				<td>201905555624</td>
-				<td>黄慧源</td>
-				<td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
-			</tr>
+		<div class="div1">
 	
-			
-			
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我的表格<p>
+		<br>
+		<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学号</label>
+		<input type="number" id="n"/" style="width:200px;height:40px">
+		<label>&nbsp;&nbsp;&nbsp;&nbsp;姓名</label>
+		<input type="text" id="t" / style="width:200px;height:40px">
+		<input type="button" value="增加"  onclick="add()" / >
+		<br />
+		<table border="1"  id="father" align="center" height="50px" width="500px" style="border-collapse: collapse;">
+			<tr id="tr">
+				<td width="100px">学号</td>
+				<td width="100px">姓名</td>
+				<td><a>操作</a></td>
+			</tr>	
 		</table>
-		
-		
-		<button type="button" onclick="displayResult()">删除表格第一行</button>
-		<h1>先点增加</h1>
-		
-		
-		
-		
-		
-		
-		
+		<script type="text/javascript">
+        	function add(){
+        		var tr=document.getElementById("father").insertRow();
+        		var td1=tr.insertCell();
+        		var td2=tr.insertCell();
+        		var td3=tr.insertCell();
+        		td1.innerHTML=document.getElementById("n").value;
+        		td2.innerHTML=document.getElementById("t").value;
+        		var s=document.createElement("input");
+        		td3.appendChild(s);
+        		s.setAttribute("type","button");
+        		s.setAttribute("value","delete");
+        		s.onclick=function(){
+        			this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+        		}	
+        	}
+        </script>
+
+</div>
 	</body>
-</html>
+<html>
